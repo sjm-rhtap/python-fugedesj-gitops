@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: python-fugedesj-gitops
+  description: This is GitOps manifest for python-fugedesj   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-selector: tssc/gitops=python-fugedesj
+    backstage.io/kubernetes-id: python-fugedesj 
+    backstage.io/techdocs-ref: dir:. 
+    janus-idp.io/tekton: python-fugedesj
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:python-fugedesj
